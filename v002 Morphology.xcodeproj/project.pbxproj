@@ -328,6 +328,7 @@
 				);
 				INFOPLIST_FILE = "v002 Morphology/v002 Morphology-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				V002_UNIQUE_CLASS_NAME_PREFIX = v002Morphology;
 				WRAPPER_EXTENSION = plugin;
@@ -343,6 +344,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "V002_UNIQUE_CLASS_NAME_PREFIX=v002Morphology";
 				INFOPLIST_FILE = "v002 Morphology/v002 Morphology-Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				V002_UNIQUE_CLASS_NAME_PREFIX = v002Morphology;
 				WRAPPER_EXTENSION = plugin;
