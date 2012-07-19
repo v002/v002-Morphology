@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012 __MyCompanyName__. All rights reserved.</string>
+	<string>v002 Morphology version 1.0, © 2008-2012 vade &amp; bangnoise</string>
 	<key>QCPlugInClasses</key>
 	<array>
 		<string>v002_DilatePlugIn</string>
