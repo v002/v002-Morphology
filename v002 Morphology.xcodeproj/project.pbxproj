@@ -16,12 +16,12 @@
 		1B48F38E15523B6000958631 /* v002FBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48F38615523B6000958631 /* v002FBO.m */; };
 		1B48F38F15523B6000958631 /* v002MasterPluginInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48F38815523B6000958631 /* v002MasterPluginInterface.m */; };
 		1B48F39015523B6000958631 /* v002Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48F38A15523B6000958631 /* v002Shader.m */; };
-		1B48F39515523C7600958631 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B48F39415523C7600958631 /* OpenGL.framework */; };
 		1B48F39615523D1A00958631 /* v002.dilate.frag in Resources */ = {isa = PBXBuildFile; fileRef = 1B48F37D15523B5500958631 /* v002.dilate.frag */; };
 		1B48F39715523D1A00958631 /* v002.dilate.vert in Resources */ = {isa = PBXBuildFile; fileRef = 1B48F37E15523B5500958631 /* v002.dilate.vert */; };
 		1B48F39C15523E1800958631 /* v002_ErodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48F39915523E1800958631 /* v002_ErodePlugIn.m */; };
 		1B48F39D15523E1800958631 /* v002.erode.frag in Resources */ = {isa = PBXBuildFile; fileRef = 1B48F39A15523E1800958631 /* v002.erode.frag */; };
 		1B48F39E15523E1800958631 /* v002.erode.vert in Resources */ = {isa = PBXBuildFile; fileRef = 1B48F39B15523E1800958631 /* v002.erode.vert */; };
+		1B884FA615C0FF07009AB948 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B884FA515C0FF07009AB948 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,11 +47,11 @@
 		1B48F38915523B6000958631 /* v002Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v002Shader.h; sourceTree = "<group>"; };
 		1B48F38A15523B6000958631 /* v002Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v002Shader.m; sourceTree = "<group>"; };
 		1B48F38B15523B6000958631 /* v002UniqueClassNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v002UniqueClassNames.h; sourceTree = "<group>"; };
-		1B48F39415523C7600958631 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
 		1B48F39815523E1800958631 /* v002_ErodePlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v002_ErodePlugIn.h; sourceTree = "<group>"; };
 		1B48F39915523E1800958631 /* v002_ErodePlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v002_ErodePlugIn.m; sourceTree = "<group>"; };
 		1B48F39A15523E1800958631 /* v002.erode.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = v002.erode.frag; sourceTree = "<group>"; };
 		1B48F39B15523E1800958631 /* v002.erode.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = v002.erode.vert; sourceTree = "<group>"; };
+		1B884FA515C0FF07009AB948 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B884FA615C0FF07009AB948 /* OpenGL.framework in Frameworks */,
 				1B37146A15523A65001B63B5 /* Cocoa.framework in Frameworks */,
 				1B37146C15523A65001B63B5 /* Quartz.framework in Frameworks */,
-				1B48F39515523C7600958631 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 		1B37146815523A65001B63B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1B48F39415523C7600958631 /* OpenGL.framework */,
+				1B884FA515C0FF07009AB948 /* OpenGL.framework */,
 				1B37146915523A65001B63B5 /* Cocoa.framework */,
 				1B37146B15523A65001B63B5 /* Quartz.framework */,
 				1B37146D15523A65001B63B5 /* Other Frameworks */,
