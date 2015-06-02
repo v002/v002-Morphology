@@ -24,6 +24,7 @@
 	<array>
 		<string>v002_DilatePlugIn</string>
 		<string>v002_ErodePlugIn</string>
+		<string>v002_MedianPlugIn</string>
 	</array>
 </dict>
 </plist>

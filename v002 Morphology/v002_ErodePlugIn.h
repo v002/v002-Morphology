@@ -7,20 +7,9 @@
 //
 
 #import <Quartz/Quartz.h>
-#import "v002MasterPluginInterface.h"
+#import "v002MorphologyGenericImageProcessor.h"
 
-@interface v002_ErodePlugIn : v002MasterPluginInterface
+@interface v002_ErodePlugIn : v002MorphologyGenericImageProcessor
 {
 }
-
-@property (assign) id<QCPlugInInputImageSource> inputImage;
-@property (assign) double inputAmount;
-@property (assign) id<QCPlugInOutputImageProvider> outputImage;
-
-
-@end
-
-@interface v002_ErodePlugIn (Execution)
-- (GLuint) renderToFBO:(CGLContextObj)context width:(NSUInteger)pixelsWide height:(NSUInteger)pixelsHigh bounds:(NSRect)bounds texture:(GLuint)texture amount:(double)amount;
-
 @end

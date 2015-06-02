@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E7C25268-B1DB-4936-B1C5-B97E9E384CBD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>v002 Morphology</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3B7506CE1E10414ED484959AA4C4CE7EDCF60BA6</key>
+		<string>github.com:v002/v002-Utilities.git</string>
+		<key>DC57C6D9875A26AAFA1EF8427AAD5DBE74197D06</key>
+		<string>https://github.com/v002/v002-Morphology.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>v002 Morphology.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3B7506CE1E10414ED484959AA4C4CE7EDCF60BA6</key>
+		<string>../..v002%20Utilities</string>
+		<key>DC57C6D9875A26AAFA1EF8427AAD5DBE74197D06</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/v002/v002-Morphology.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DC57C6D9875A26AAFA1EF8427AAD5DBE74197D06</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DC57C6D9875A26AAFA1EF8427AAD5DBE74197D06</string>
+			<key>IDESourceControlWCCName</key>
+			<string>v002-Morphology</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3B7506CE1E10414ED484959AA4C4CE7EDCF60BA6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>v002-Morphologyv002%20Utilities</string>
+		</dict>
+	</array>
+</dict>
+</plist>
