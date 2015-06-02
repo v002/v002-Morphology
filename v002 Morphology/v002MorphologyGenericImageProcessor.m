@@ -33,7 +33,6 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 @dynamic inputAmount;
 @dynamic outputImage;
 
-@synthesize shaderUniformBlock;
 
 + (NSDictionary*) attributesForPropertyPortWithKey:(NSString*)key
 {
@@ -92,7 +91,7 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
         BOOL useFloat = [self boundImageIsFloatingPoint:image inContext:cgl_ctx];
         
         // Render
-        GLuint finalOutput = [self renderToFBO:cgl_ctx image:image useFloat:useFloat];
+        GLuint finalOutput = [self singleImageRenderWithContext:cgl_ctx image:image useFloat:useFloat];
         
         [image unbindTextureRepresentationFromCGLContext:[context CGLContextObj] textureUnit:GL_TEXTURE0];
         [image unlockTextureRepresentation];
@@ -121,28 +120,4 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
     return YES;
 }
 
-- (GLuint) renderToFBO:(CGLContextObj)cgl_ctx image:(id<QCPlugInInputImageSource>)image useFloat:(BOOL)useFloat
-{
-    
-    // bind our shader program
-    glUseProgramObjectARB([pluginShader programObject]);
-    
-    // setup our shaders!
-    if(self.shaderUniformBlock)
-    {
-        self.shaderUniformBlock(cgl_ctx);
-    }
-    else
-    {
-        // some error or some shit
-    }
-
-   GLuint tex = [self singleImageRenderWithContext:cgl_ctx image:image useFloat:useFloat];
-    
-    // disable shader program
-    glUseProgramObjectARB(NULL);
-
-    
-    return tex;
-}
 @end
