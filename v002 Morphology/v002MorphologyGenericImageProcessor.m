@@ -19,10 +19,6 @@
 /* It's highly recommended to use CGL macros instead of changing the current context for plug-ins that perform OpenGL rendering */
 #import <OpenGL/CGLMacro.h>
 
-//#define	kQCPlugIn_Name				@"v002 Dilate"
-//#define	kQCPlugIn_Description		@"Dilate Image - basic morphological set transformations"
-
-
 #pragma mark -
 #pragma mark Static Functions
 
@@ -37,12 +33,7 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 @dynamic inputAmount;
 @dynamic outputImage;
 
-//+ (NSDictionary*) attributes
-//{
-//    return [NSDictionary dictionaryWithObjectsAndKeys:kQCPlugIn_Name, QCPlugInAttributeNameKey,
-//            [kQCPlugIn_Description stringByAppendingString:kv002DescriptionAddOnText], QCPlugInAttributeDescriptionKey,
-//            kQCPlugIn_Category, @"categories", nil];
-//}
+@synthesize shaderUniformBlock;
 
 + (NSDictionary*) attributesForPropertyPortWithKey:(NSString*)key
 {

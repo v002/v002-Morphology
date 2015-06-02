@@ -9,12 +9,18 @@
 #import <Quartz/Quartz.h>
 #import "v002MasterPluginInterface.h"
 
+// Callback that setups our uniforms every rendering pass,
+// ideally set in init by subclasses to associated input ports with uniforms
+// and set images to assigned units, etc
+// Warning - be careful of self retain cycles. Use weak / strong workaround
+
+typedef void(^ShaderUniformBlock)(CGLContextObj cgl_ctx);
+
 @interface v002MorphologyGenericImageProcessor : v002MasterPluginInterface
 {
-    
+    ShaderUniformBlock shaderUniformBlock;
 }
-@property (nonatomic, copy) void (^shaderUniformBlock)(CGLContextObj cgl_ctx);
-
+@property (nonatomic, copy) ShaderUniformBlock shaderUniformBlock;
 
 @property (assign) id<QCPlugInInputImageSource> inputImage;
 @property (assign) double inputAmount;
