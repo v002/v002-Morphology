@@ -95,7 +95,7 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
         BOOL useFloat = (result == GL_RGBA32F_ARB) ? YES : NO;
 
         // Render
-        GLuint finalOutput = [self renderToFBO:cgl_ctx image:image amount:self.inputAmount useFloat:useFloat];
+        GLuint finalOutput = [self renderToFBO:cgl_ctx image:image useFloat:useFloat];
         
         [image unbindTextureRepresentationFromCGLContext:[context CGLContextObj] textureUnit:GL_TEXTURE0];
         [image unlockTextureRepresentation];
@@ -124,12 +124,26 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
     return YES;
 }
 
-- (GLuint) renderToFBO:(CGLContextObj)context image:(id<QCPlugInInputImageSource>)image amount:(double)amount useFloat:(BOOL)useFloat
+- (GLuint) renderToFBO:(CGLContextObj)cgl_ctx image:(id<QCPlugInInputImageSource>)image useFloat:(BOOL)useFloat
 {
+    
+    // bind our shader program
+    glUseProgramObjectARB([pluginShader programObject]);
+    
+    // setup our shaders!
+    if(self.shaderUniformBlock)
+    {
+        self.shaderUniformBlock(cgl_ctx);
+    }
+    else
+    {
+        // some error or some shit
+    }
+
+    
     GLsizei width = [image imageBounds].size.width;
     GLsizei height = [image imageBounds].size.height;
     
-    CGLContextObj cgl_ctx = context;
     [pluginFBO pushAttributes:cgl_ctx];
     glEnable(GL_TEXTURE_RECTANGLE_EXT);
     
@@ -163,19 +177,7 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
     glDisable(GL_BLEND);
     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
     
-    // bind our shader program
-    glUseProgramObjectARB([pluginShader programObject]);
 
-    // setup our shaders!
-    if(self.shaderUniformBlock)
-    {
-        self.shaderUniformBlock(cgl_ctx);
-    }
-    else
-    {
-        // some error or some shit
-    }
-    
       // move to VA for rendering
     GLfloat tex_coords[] =
     {
@@ -199,9 +201,6 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
     glVertexPointer(2, GL_FLOAT, 0, verts );
     glDrawArrays( GL_TRIANGLE_FAN, 0, 4 );	// TODO: GL_QUADS or GL_TRIANGLE_FAN?
     
-    // disable shader program
-    glUseProgramObjectARB(NULL);
-    
     if(useFloat)
     {
         glClampColorARB(GL_CLAMP_FRAGMENT_COLOR_ARB, GL_TRUE);
@@ -210,6 +209,11 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
     [pluginFBO detachFBO:cgl_ctx];
     [pluginFBO popFBO:cgl_ctx];
     [pluginFBO popAttributes:cgl_ctx];
+    
+    // disable shader program
+    glUseProgramObjectARB(NULL);
+
+    
     return tex;
 }
 @end

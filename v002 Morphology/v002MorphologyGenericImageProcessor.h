@@ -30,6 +30,6 @@ typedef void(^ShaderUniformBlock)(CGLContextObj cgl_ctx);
 @end
 
 @interface v002MorphologyGenericImageProcessor (Execution)
-- (GLuint) renderToFBO:(CGLContextObj)context image:(id<QCPlugInInputImageSource>)image amount:(double)amount useFloat:(BOOL)useFloat;
+- (GLuint) renderToFBO:(CGLContextObj)context image:(id<QCPlugInInputImageSource>)image useFloat:(BOOL)useFloat;
 @end
 
