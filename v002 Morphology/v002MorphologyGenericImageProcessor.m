@@ -89,11 +89,8 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
     {
         [image bindTextureRepresentationToCGLContext:[context CGLContextObj] textureUnit:GL_TEXTURE0 normalizeCoordinates:YES];
         
-        // Deduce the bit depth of the input image, so we can appropriately output a lossless image
-        GLint result;
-        glGetTexLevelParameteriv([image textureTarget], 0, GL_TEXTURE_INTERNAL_FORMAT, &result);
-        BOOL useFloat = (result == GL_RGBA32F_ARB) ? YES : NO;
-
+        BOOL useFloat = [self boundImageIsFloatingPoint:image inContext:cgl_ctx];
+        
         // Render
         GLuint finalOutput = [self renderToFBO:cgl_ctx image:image useFloat:useFloat];
         
@@ -104,16 +101,16 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
         
         if(finalOutput != 0)
         {
-            
-#if __BIG_ENDIAN__
-#define v002QCPluginPixelFormat QCPlugInPixelFormatARGB8
-#else
-#define v002QCPluginPixelFormat QCPlugInPixelFormatBGRA8
-#endif
-            NSString* format = (useFloat) ? QCPlugInPixelFormatRGBAf : v002QCPluginPixelFormat;
-            
             // we have to use a 4 channel output format, I8 does not support alpha at fucking all, so if we want text with alpha, we need to use this and waste space. Ugh.
-            provider = [context outputImageProviderFromTextureWithPixelFormat:format pixelsWide:[image imageBounds].size.width pixelsHigh:[image imageBounds].size.height name:finalOutput flipped:NO releaseCallback:_TextureReleaseCallback releaseContext:NULL colorSpace:[context colorSpace] shouldColorMatch:[image shouldColorMatch]];
+            provider = [context outputImageProviderFromTextureWithPixelFormat:[self pixelFormatIfUsingFloat:useFloat]
+                                                                   pixelsWide:[image imageBounds].size.width
+                                                                   pixelsHigh:[image imageBounds].size.height
+                                                                         name:finalOutput
+                                                                      flipped:NO
+                                                              releaseCallback:_TextureReleaseCallback
+                                                               releaseContext:NULL
+                                                                   colorSpace:[context colorSpace]
+                                                             shouldColorMatch:[image shouldColorMatch]];
             
             self.outputImage = provider;
         }
@@ -140,75 +137,7 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
         // some error or some shit
     }
 
-    
-    GLsizei width = [image imageBounds].size.width;
-    GLsizei height = [image imageBounds].size.height;
-    
-    [pluginFBO pushAttributes:cgl_ctx];
-    glEnable(GL_TEXTURE_RECTANGLE_EXT);
-    
-    GLuint tex;
-    glGenTextures(1, &tex);
-    glBindTexture(GL_TEXTURE_RECTANGLE_ARB, tex);
-    
-    if(useFloat)
-    {
-        glTexImage2D(GL_TEXTURE_RECTANGLE_ARB, 0, GL_RGBA32F_ARB, width, height, 0, GL_RGBA, GL_FLOAT, NULL);
-        glClampColorARB(GL_CLAMP_FRAGMENT_COLOR_ARB, GL_FALSE);
-    }
-    else
-    {
-        glTexImage2D(GL_TEXTURE_RECTANGLE_ARB, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-    }
-    
-    [pluginFBO pushFBO:cgl_ctx];
-    [pluginFBO attachFBO:cgl_ctx withTexture:tex width:width height:height];
-    
-    glColor4f(1.0, 1.0, 1.0, 1.0);
-    
-    glEnable([image textureTarget]);
-    glBindTexture(GL_TEXTURE_RECTANGLE_EXT, [image textureName]);
-    glTexParameterf(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_RECTANGLE_EXT, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    
-    // do not need blending if we use black border for alpha and replace env mode, saves a buffer wipe
-    // we can do this since our image draws over the complete surface of the FBO, no pixel goes untouched.
-    glDisable(GL_BLEND);
-    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-    
-
-      // move to VA for rendering
-    GLfloat tex_coords[] =
-    {
-        1.0,1.0,
-        0.0,1.0,
-        0.0,0.0,
-        1.0,0.0
-    };
-    
-    GLfloat verts[] =
-    {
-        width,height,
-        0.0,height,
-        0.0,0.0,
-        width,0.0
-    };
-    
-    glEnableClientState( GL_TEXTURE_COORD_ARRAY );
-    glTexCoordPointer(2, GL_FLOAT, 0, tex_coords );
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glVertexPointer(2, GL_FLOAT, 0, verts );
-    glDrawArrays( GL_TRIANGLE_FAN, 0, 4 );	// TODO: GL_QUADS or GL_TRIANGLE_FAN?
-    
-    if(useFloat)
-    {
-        glClampColorARB(GL_CLAMP_FRAGMENT_COLOR_ARB, GL_TRUE);
-    }
-    
-    [pluginFBO detachFBO:cgl_ctx];
-    [pluginFBO popFBO:cgl_ctx];
-    [pluginFBO popAttributes:cgl_ctx];
+   GLuint tex = [self singleImageRenderWithContext:cgl_ctx image:image useFloat:useFloat];
     
     // disable shader program
     glUseProgramObjectARB(NULL);
