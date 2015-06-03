@@ -20,33 +20,34 @@ uniform sampler2DRect image;
 
 void main()
 {
-    vec3 v[6];
+    vec4 v[6];
     
     vec2 textureCoordinate = texcoord3 + texcoord4;
     
-    v[0] = texture2DRect(image, texcoord0).rgb;
-    v[1] = texture2DRect(image, texcoord7).rgb;
-    v[2] = texture2DRect(image, texcoord5).rgb;
-    v[3] = texture2DRect(image, texcoord2).rgb;
-    v[4] = texture2DRect(image, texcoord3).rgb;
-    v[5] = texture2DRect(image, texcoord4).rgb;
+    v[0] = texture2DRect(image, texcoord0);
+    v[1] = texture2DRect(image, texcoord7);
+    v[2] = texture2DRect(image, texcoord5);
+    v[3] = texture2DRect(image, texcoord2);
+    v[4] = texture2DRect(image, texcoord3);
+    v[5] = texture2DRect(image, texcoord4);
     //     v[6] = texture2D(inputImageTexture, bottomTextureCoordinate).rgb;
     //     v[7] = texture2D(inputImageTexture, topTextureCoordinate).rgb;
-    vec3 temp;
+    vec4 temp;
     
     mnmx6(v[0], v[1], v[2], v[3], v[4], v[5]);
     
-    v[5] = texture2DRect(image, texcoord1).rgb;
+    v[5] = texture2DRect(image, texcoord1);
     
     mnmx5(v[1], v[2], v[3], v[4], v[5]);
     
-    v[5] = texture2DRect(image, texcoord6).rgb;
+    v[5] = texture2DRect(image, texcoord6);
     
     mnmx4(v[2], v[3], v[4], v[5]);
     
-    v[5] = texture2DRect(image, textureCoordinate).rgb;
+    v[5] = texture2DRect(image, textureCoordinate);
+    
     
     mnmx3(v[3], v[4], v[5]);
     
-    gl_FragColor = vec4(v[4], 1.0);
+    gl_FragColor = vec4(v[4]);
 }
