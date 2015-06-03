@@ -33,7 +33,6 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
 @dynamic inputAmount;
 @dynamic outputImage;
 
-
 + (NSDictionary*) attributesForPropertyPortWithKey:(NSString*)key
 {
     if([key isEqualToString:@"inputImage"])
@@ -71,7 +70,6 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
     return kQCPlugInTimeModeNone;
 }
 
-
 @end
 
 @implementation v002MorphologyGenericImageProcessor (Execution)
@@ -100,7 +98,6 @@ static void _TextureReleaseCallback(CGLContextObj cgl_ctx, GLuint name, void* in
         
         if(finalOutput != 0)
         {
-            // we have to use a 4 channel output format, I8 does not support alpha at fucking all, so if we want text with alpha, we need to use this and waste space. Ugh.
             provider = [context outputImageProviderFromTextureWithPixelFormat:[self pixelFormatIfUsingFloat:useFloat]
                                                                    pixelsWide:[image imageBounds].size.width
                                                                    pixelsHigh:[image imageBounds].size.height
