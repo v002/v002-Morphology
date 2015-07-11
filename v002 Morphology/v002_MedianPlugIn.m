@@ -30,16 +30,12 @@
     {
         self.pluginShaderName = @"v002.median";
         
-        __unsafe_unretained typeof(self) weakSelf = self;
-        
-        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx)
+        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_MedianPlugIn* instance)
         {
-            if(weakSelf)
+            if(instance)
             {
-                __strong typeof(self) strongSelf = weakSelf;
-                
-                glUniform1iARB([strongSelf->pluginShader getUniformLocation:"image"], 0);
-                glUniform1fARB([strongSelf->pluginShader getUniformLocation:"amount"], strongSelf.inputAmount);
+                glUniform1iARB([instance->pluginShader getUniformLocation:"image"], 0);
+                glUniform1fARB([instance->pluginShader getUniformLocation:"amount"], instance.inputAmount);
             }
         };
     }
