@@ -30,7 +30,7 @@
     {
         self.pluginShaderName = @"v002.median";
         
-        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_MedianPlugIn* instance)
+        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_MedianPlugIn* instance, __unsafe_unretained id<QCPlugInInputImageSource> image)
         {
             if(instance)
             {

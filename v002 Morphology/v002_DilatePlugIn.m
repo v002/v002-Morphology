@@ -32,7 +32,7 @@
 	{
 		self.pluginShaderName = @"v002.dilate";
         
-        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_DilatePlugIn* instance)
+        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_DilatePlugIn* instance, __unsafe_unretained id<QCPlugInInputImageSource> image)
         {
             if(instance)
             {

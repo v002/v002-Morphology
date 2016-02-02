@@ -31,7 +31,7 @@
     {
         self.pluginShaderName = @"v002.erode";
         
-        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_ErodePlugIn* instance)
+        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_ErodePlugIn* instance, __unsafe_unretained id<QCPlugInInputImageSource> image)
         {
             if(instance)
             {
