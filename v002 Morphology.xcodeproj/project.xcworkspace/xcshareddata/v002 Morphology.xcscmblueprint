@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DC57C6D9875A26AAFA1EF8427AAD5DBE74197D06",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DC57C6D9875A26AAFA1EF8427AAD5DBE74197D06" : 0,
+    "3B7506CE1E10414ED484959AA4C4CE7EDCF60BA6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E7C25268-B1DB-4936-B1C5-B97E9E384CBD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DC57C6D9875A26AAFA1EF8427AAD5DBE74197D06" : "v002-Morphology",
+    "3B7506CE1E10414ED484959AA4C4CE7EDCF60BA6" : "v002-Morphologyv002%20Utilities"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "v002 Morphology",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "v002 Morphology.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:v002\/v002-Utilities.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3B7506CE1E10414ED484959AA4C4CE7EDCF60BA6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/v002\/v002-Morphology.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DC57C6D9875A26AAFA1EF8427AAD5DBE74197D06"
+    }
+  ]
+}

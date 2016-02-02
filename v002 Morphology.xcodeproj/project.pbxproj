@@ -21,6 +21,10 @@
 		1B48F39C15523E1800958631 /* v002_ErodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B48F39915523E1800958631 /* v002_ErodePlugIn.m */; };
 		1B48F39D15523E1800958631 /* v002.erode.frag in Resources */ = {isa = PBXBuildFile; fileRef = 1B48F39A15523E1800958631 /* v002.erode.frag */; };
 		1B48F39E15523E1800958631 /* v002.erode.vert in Resources */ = {isa = PBXBuildFile; fileRef = 1B48F39B15523E1800958631 /* v002.erode.vert */; };
+		1B5FE4F21B1CFB8E00EED2A1 /* v002MorphologyGenericImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FE4F11B1CFB8E00EED2A1 /* v002MorphologyGenericImageProcessor.m */; };
+		1B5FE4F61B1D000100EED2A1 /* v002_MedianPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FE4F51B1D000100EED2A1 /* v002_MedianPlugIn.m */; };
+		1B5FE4F81B1D017900EED2A1 /* v002.median.vert in Resources */ = {isa = PBXBuildFile; fileRef = 1B5FE4F71B1D017900EED2A1 /* v002.median.vert */; };
+		1B5FE4FA1B1D018800EED2A1 /* v002.median.frag in Resources */ = {isa = PBXBuildFile; fileRef = 1B5FE4F91B1D018800EED2A1 /* v002.median.frag */; };
 		1B884FA615C0FF07009AB948 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B884FA515C0FF07009AB948 /* OpenGL.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,12 @@
 		1B48F39915523E1800958631 /* v002_ErodePlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v002_ErodePlugIn.m; sourceTree = "<group>"; };
 		1B48F39A15523E1800958631 /* v002.erode.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = v002.erode.frag; sourceTree = "<group>"; };
 		1B48F39B15523E1800958631 /* v002.erode.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = v002.erode.vert; sourceTree = "<group>"; };
+		1B5FE4F01B1CFB8E00EED2A1 /* v002MorphologyGenericImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v002MorphologyGenericImageProcessor.h; sourceTree = "<group>"; };
+		1B5FE4F11B1CFB8E00EED2A1 /* v002MorphologyGenericImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = v002MorphologyGenericImageProcessor.m; sourceTree = "<group>"; };
+		1B5FE4F41B1D000100EED2A1 /* v002_MedianPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = v002_MedianPlugIn.h; path = "v002 Morphology/v002_MedianPlugIn.h"; sourceTree = SOURCE_ROOT; };
+		1B5FE4F51B1D000100EED2A1 /* v002_MedianPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = v002_MedianPlugIn.m; path = "v002 Morphology/v002_MedianPlugIn.m"; sourceTree = SOURCE_ROOT; };
+		1B5FE4F71B1D017900EED2A1 /* v002.median.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = v002.median.vert; path = "v002 Morphology/v002.median.vert"; sourceTree = SOURCE_ROOT; };
+		1B5FE4F91B1D018800EED2A1 /* v002.median.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = v002.median.frag; path = "../v002 Morphology/v002.median.frag"; sourceTree = "<group>"; };
 		1B884FA515C0FF07009AB948 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -112,7 +122,10 @@
 				1B48F38215523B6000958631 /* v002 Utilities */,
 				1B48F37A15523B4800958631 /* Erode */,
 				1B48F37915523B4300958631 /* Dilate */,
+				1B5FE4F31B1CFFD700EED2A1 /* Median */,
 				1B37147415523A65001B63B5 /* Supporting Files */,
+				1B5FE4F01B1CFB8E00EED2A1 /* v002MorphologyGenericImageProcessor.h */,
+				1B5FE4F11B1CFB8E00EED2A1 /* v002MorphologyGenericImageProcessor.m */,
 			);
 			path = "v002 Morphology";
 			sourceTree = "<group>";
@@ -165,6 +178,18 @@
 			path = "v002 Utilities";
 			sourceTree = SOURCE_ROOT;
 		};
+		1B5FE4F31B1CFFD700EED2A1 /* Median */ = {
+			isa = PBXGroup;
+			children = (
+				1B5FE4F41B1D000100EED2A1 /* v002_MedianPlugIn.h */,
+				1B5FE4F51B1D000100EED2A1 /* v002_MedianPlugIn.m */,
+				1B5FE4F71B1D017900EED2A1 /* v002.median.vert */,
+				1B5FE4F91B1D018800EED2A1 /* v002.median.frag */,
+			);
+			name = Median;
+			path = "../v002 Utilities";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,7 +217,7 @@
 		1B37145C15523A65001B63B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 1B37145F15523A65001B63B5 /* Build configuration list for PBXProject "v002 Morphology" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -219,8 +244,10 @@
 				1B48F39615523D1A00958631 /* v002.dilate.frag in Resources */,
 				1B48F39715523D1A00958631 /* v002.dilate.vert in Resources */,
 				1B48F39D15523E1800958631 /* v002.erode.frag in Resources */,
+				1B5FE4F81B1D017900EED2A1 /* v002.median.vert in Resources */,
 				1B48F39E15523E1800958631 /* v002.erode.vert in Resources */,
 				1B37147815523A65001B63B5 /* InfoPlist.strings in Resources */,
+				1B5FE4FA1B1D018800EED2A1 /* v002.median.frag in Resources */,
 				1B48F38C15523B6000958631 /* icon.icns in Resources */,
 				1B48F38D15523B6000958631 /* README.md in Resources */,
 			);
@@ -249,6 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B5FE4F21B1CFB8E00EED2A1 /* v002MorphologyGenericImageProcessor.m in Sources */,
+				1B5FE4F61B1D000100EED2A1 /* v002_MedianPlugIn.m in Sources */,
 				1B48F37F15523B5500958631 /* v002_DilatePlugIn.m in Sources */,
 				1B48F38E15523B6000958631 /* v002FBO.m in Sources */,
 				1B48F38F15523B6000958631 /* v002MasterPluginInterface.m in Sources */,
@@ -320,7 +349,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "v002 Morphology/v002 Morphology-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -340,7 +368,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "v002 Morphology/v002 Morphology-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "V002_UNIQUE_CLASS_NAME_PREFIX=v002Morphology";

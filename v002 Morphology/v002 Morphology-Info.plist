@@ -17,13 +17,14 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>v002 Morphology version 1.0, © 2008-2012 vade &amp; bangnoise</string>
+	<string>v002 Morphology version 1.2, © 2008-2016 vade &amp; bangnoise</string>
 	<key>QCPlugInClasses</key>
 	<array>
 		<string>v002_DilatePlugIn</string>
 		<string>v002_ErodePlugIn</string>
+		<string>v002_MedianPlugIn</string>
 	</array>
 </dict>
 </plist>

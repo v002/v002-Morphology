@@ -10,6 +10,8 @@ varying vec2 texcoord5;
 varying vec2 texcoord6;
 varying vec2 texcoord7;
 
+//uniform vec2 imageSize;
+
 void main()
 {
 	// perform standard transform on vertex
@@ -17,7 +19,7 @@ void main()
 
 	// transform texcoord	
 	vec2 texcoord = vec2(gl_TextureMatrix[0] * gl_MultiTexCoord0);
-
+    
 	// get sample positions
 	texcoord0 = texcoord + vec2(-amount, -amount);
 	texcoord1 = texcoord + vec2( 0,      -amount);

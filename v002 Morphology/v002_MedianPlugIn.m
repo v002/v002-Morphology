@@ -1,22 +1,21 @@
 //
-//  v002FBOGLSLTemplatePlugIn.m
-//  v002FBOGLSLTemplate
+//  v002_MedianPlugIn.m
+//  v002 Morphology
 //
-//  Created by vade on 6/30/08.
-//  Copyright (c) 2008 __MyCompanyName__. All rights reserved.
+//  Created by vade on 6/1/15.
+//
 //
 
-/* It's highly recommended to use CGL macros instead of changing the current context for plug-ins that perform OpenGL rendering */
 #import <OpenGL/CGLMacro.h>
+#import "v002_MedianPlugIn.h"
 
-#import "v002_ErodePlugIn.h"
-#define	kQCPlugIn_Name				@"v002 Erode"
-#define	kQCPlugIn_Description		@"Erode Image - basic morphological set transformations"
+#define	kQCPlugIn_Name				@"v002 Median"
+#define	kQCPlugIn_Description		@"Median Image - basic morphological set transformations"
 
 #pragma mark -
 #pragma mark Static Functions
 
-@implementation v002_ErodePlugIn
+@implementation v002_MedianPlugIn
 
 + (NSDictionary*) attributes
 {
@@ -29,9 +28,9 @@
 {
     if(self = [super init])
     {
-        self.pluginShaderName = @"v002.erode";
+        self.pluginShaderName = @"v002.median";
         
-        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_ErodePlugIn* instance, __unsafe_unretained id<QCPlugInInputImageSource> image)
+        self.shaderUniformBlock = ^void(CGLContextObj cgl_ctx, v002_MedianPlugIn* instance, __unsafe_unretained id<QCPlugInInputImageSource> image)
         {
             if(instance)
             {
