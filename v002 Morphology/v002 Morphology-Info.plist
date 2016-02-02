@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>v002 Morphology version 1.2, © 2008-2016 vade &amp; bangnoise</string>
 	<key>QCPlugInClasses</key>
